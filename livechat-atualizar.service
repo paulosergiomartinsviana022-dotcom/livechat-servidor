@@ -1,0 +1,7 @@
+[Unit]
+Description=Live Chat - procurar atualizacao
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/opt/livechat/atualizar.sh
