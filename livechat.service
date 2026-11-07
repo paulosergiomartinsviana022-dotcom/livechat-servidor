@@ -1,0 +1,19 @@
+# Servico do Live Chat na VPS (Ubuntu). Copie para /etc/systemd/system/livechat.service
+# e rode:  sudo systemctl daemon-reload && sudo systemctl enable --now livechat
+[Unit]
+Description=Live Chat - servidor de mensagens
+After=network.target
+
+[Service]
+WorkingDirectory=/opt/livechat
+ExecStart=/opt/livechat/livechat-servidor-linux -porta 8430 -dados /opt/livechat/dados
+Restart=always
+RestartSec=3
+# Cadastro: "aberto" (qualquer pessoa cria conta) ou "fechado" (so o admin cria)
+Environment=LIVECHAT_CADASTRO=aberto
+Environment=LIVECHAT_NOME=Live Chat
+# Servidor TURN opcional (para chamadas atras de redes muito fechadas):
+#Environment=LIVECHAT_ICE=[{"urls":"stun:stun.l.google.com:19302"},{"urls":"turn:SEU_IP:3478","username":"livechat","credential":"SENHA"}]
+
+[Install]
+WantedBy=multi-user.target
