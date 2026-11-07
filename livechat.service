@@ -12,6 +12,8 @@ RestartSec=3
 # Cadastro: "aberto" (qualquer pessoa cria conta) ou "fechado" (so o admin cria)
 Environment=LIVECHAT_CADASTRO=aberto
 Environment="LIVECHAT_NOME=Live Chat"
+# Limite total dos arquivos enviados pelos usuarios (GB)
+Environment=LIVECHAT_LIMITE_GB=30
 # Servidor TURN opcional (para chamadas atras de redes muito fechadas):
 #Environment='LIVECHAT_ICE=[{"urls":"stun:stun.l.google.com:19302"},{"urls":"turn:SEU_IP:3478","username":"livechat","credential":"SENHA"}]'
 # Recuperacao de senha por e-mail (opcional). Gmail: use uma senha de app.
